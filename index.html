@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <input type="button" value="sin" onclick="trigFunction('sin')">
+        <input type="button" value="cos" onclick="trigFunction('cos')">
+        <input type="button" value="tan" onclick="trigFunction('tan')">
+        <input type="button" value="√" onclick="sqrtFunction()">
+        <input type="button" value="^" onclick="addToDisplay('^')">
+        <input type="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" value="8" onclick="addToDisplay('8')">
+        <input type="button" value="9" onclick="addToDisplay('9')">
+        <input type="button" value="*" onclick="addToDisplay('*')">
+        <input type="button" value="6" onclick="addToDisplay('6')">
+        <input type="button" value="5" onclick="addToDisplay('5')">
+        <input type="button" value="4" onclick="addToDisplay('4')">
+        <input type="button" value="-" onclick="addToDisplay('-')">
+        <input type="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" value="3" onclick="addToDisplay('3')">
+        <input type="button" value="+" onclick="addToDisplay('+')">
+        <input type="button" value="." onclick="addToDisplay('.')">
+        <input type="button" value="0" onclick="addToDisplay('0')">
+        <input type="button" value="=" onclick="calculate()">
+        <input type="button" value="(" onclick="addToDisplay('(')">
+        <input type="button" value=")" onclick="addToDisplay(')')">
+        <input type="button" value="AC" onclick="clearDisplay()">
+        <input type="button" value="C" onclick="backspace()">
+    </div>
+
+    <script>
+        
+        function addToDisplay(value) {
+            var displayValue = 
+    
+     document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+     
+        function backspace() {
+        var currentValue = document.getElementById('display').value;
+    document.getElementById('display').value = currentValue.slice(0, -1);
+}
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+
+        function trigFunction(func) {
+            var input = document.getElementById('display').value;
+            var result;
+            switch (func) {
+                case 'sin':
+                    result = Math.sin(eval(input));
+                    break;
+                case 'cos':
+                    result = Math.cos(eval(input));
+                    break;
+                case 'tan':
+                    result = Math.tan(eval(input));
+                    break;
+            }
+            document.getElementById('display').value = result;
+        }
+
+        function sqrtFunction() {
+            var input = document.getElementById('display').value;
+            var result = Math.sqrt(eval(input));
+            document.getElementById('display').value = result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.calculator {
+    width: 300px;
+    height: 350px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 10px solid #ccc;
+    border-radius: 5px;
+    background-color: #800080;
+    border-color: #000000;
+}
+
+input[type="text"] {
+    width: 92%;
+    height: 15%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 30px;
+    background-color: #fff;
+    text-align: right;
+    border-color: #000000;
+}
+
+input[type="button"] {
+    width: 22%;
+    height: 10%;
+    padding: 10px;
+    margin: 5px 1%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #FFD700;
+    border-color: #000000;
+}
+
+input[type="button"]:hover {
+    background-color: #f0f0f0;
+}
